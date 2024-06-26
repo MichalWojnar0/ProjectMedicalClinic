@@ -1,0 +1,86 @@
+﻿@model Patient
+
+@section title {
+    @if (Model != null)
+    {
+        <h3>Add Patient</h3>
+
+    }
+}
+
+<form method="post" asp-controller="patients" asp-action="add">
+    <div class="text-danger" asp-validation-summary="All"></div>
+    <div class="row mb-3">
+        <div class="col-2">
+            <label asp-for="FirstName" class="col-form-label"></label>
+        </div>
+        <div class="col-6">
+            <input type="text" asp-for="FirstName" class="form-control" />
+        </div>
+        <div class="col">
+            <span class="text-danger" asp-validation-for="FirstName"></span>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-2">
+            <label asp-for="LastName" class="col-form-label"></label>
+        </div>
+        <div class="col-6">
+            <input type="text" asp-for="LastName" class="form-control" />
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-2">
+            <label asp-for="DateOfBirth" class="col-form-label"></label>
+        </div>
+        <div class="col-6">
+            <input type="date" asp-for="DateOfBirth" class="form-control" />
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-2">
+            <label asp-for="Gender" class="col-form-label"></label>
+        </div>
+        <div class="col-6">
+            <input type="text" asp-for="Gender" class="form-control" />
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-2">
+            <label asp-for="PhoneNumber" class="col-form-label"></label>
+        </div>
+        <div class="col-6">
+            <input type="text" asp-for="PhoneNumber" class="form-control" />
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-2">
+            <label asp-for="Address" class="col-form-label"></label>
+        </div>
+        <div class="col-6">
+            <input type="text" asp-for="Address" class="form-control" />
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-2">
+            <label asp-for="CurrentMedications" class="col-form-label"></label>
+        </div>
+        <div class="col-6">
+            <input type="text" asp-for="CurrentMedications" class="form-control" />
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-2">
+            <input type="submit" class="btn btn-primary" value="Add" />
+        </div>
+        <div class="col-6">
+        </div>
+    </div>
+</form>

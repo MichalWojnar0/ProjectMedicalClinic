@@ -17,6 +17,8 @@
                 <th>Phone Number</th>
                 <th>Address</th>
                 <th>Current Medications</th>
+                <th></th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -31,8 +33,19 @@
                     <td>@patient.Address</td>
                     <td>@patient.CurrentMedications</td>
                     <td><a class="btn btn-link" asp-controller="patients" asp-action="edit" asp-route-id="@patient.PatientId">Edit</a></td>
+                    <td><a class="btn btn-link" asp-controller="patients" asp-action="delete" asp-route-patientid="@patient.PatientId" onclick="return confirmDelete()">Delete</a></td>
                 </tr>
             }
         </tbody>
     </table>
+    <br/>
+    <a class="btn btn-primary" asp-controller="patients"  asp-action="add">Add</a>
+}
+
+@section Scripts{
+    <script>
+        function confirmDelete(){
+            return confirm("Are you sure u want to delete this patient?")
+        }
+    </script>
 }
