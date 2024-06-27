@@ -39,9 +39,6 @@
             <p>&copy; @DateTime.Now.Year - Medical Clinic</p>
         </footer>
     </div> 
-
-     @RenderSection("scripts", required: false) 
-
     <div class="containter">
         <div class="pb-3">
             @RenderSection("title", false)
@@ -50,5 +47,6 @@
         @RenderBody()
         </div>
     </div>
+    @await RenderSectionAsync("Scripts", false)
 </body>
 </html>

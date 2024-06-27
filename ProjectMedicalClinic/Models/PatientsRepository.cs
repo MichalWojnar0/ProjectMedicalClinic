@@ -67,7 +67,7 @@
         {
             if (patientId != patient.PatientId) return;
 
-            var patientToUpdate = GetPatientById(patientId);
+            var patientToUpdate = _patients.FirstOrDefault(x => x.PatientId == patientId);
             if (patientToUpdate != null) 
             {
                 patientToUpdate.FirstName = patient.FirstName;
