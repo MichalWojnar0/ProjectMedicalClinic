@@ -14,6 +14,8 @@ namespace ProjectMedicalClinic.Controllers
 
         public IActionResult Edit(int? id)
         {
+            ViewBag.Action = "edit"; 
+
             var patient = PatientsRepository.GetPatientById(id.HasValue ? id.Value : 0);
             return View(patient);
         }
@@ -31,6 +33,8 @@ namespace ProjectMedicalClinic.Controllers
 
         public IActionResult Add()
         {
+            ViewBag.Action = "add";
+
             return View();
         }
 

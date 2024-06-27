@@ -1,0 +1,27 @@
+﻿@model List<Room>
+
+@section title {
+    <h2>Rooms</h2>
+}
+@if (Model != null && Model.Count() > 0)
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Patient ID</th>
+                <th>Room Name</th>
+                <th>Floor</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var room in Model)
+            {
+               <tr>
+                   <td>@room.Patient?.PatientId</td>
+                   <td>@room.Name</td>
+                   <td>@room.Floor</td>
+               </tr> 
+            }
+        </tbody>
+    </table>
+}
