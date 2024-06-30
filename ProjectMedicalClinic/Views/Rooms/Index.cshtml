@@ -8,7 +8,8 @@
     <table class="table table-striped">
         <thead>
             <tr>
-                <th>Patient ID</th>
+                <th>Patient First Name</th>
+                <th>Patient Last Name</th>
                 <th>Room Name</th>
                 <th>Floor</th>
             </tr>
@@ -17,11 +18,14 @@
             @foreach (var room in Model)
             {
                <tr>
-                   <td>@room.Patient?.PatientId</td>
+                   <td>@room.Patient?.FirstName</td>
+                   <td>@room.Patient?.LastName</td>
                    <td>@room.Name</td>
                    <td>@room.Floor</td>
                </tr> 
             }
         </tbody>
     </table>
+    <br />
+    <a class="btn btn-primary" asp-controller="rooms" asp-action="add">Add</a>
 }
