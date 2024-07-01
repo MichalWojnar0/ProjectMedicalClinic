@@ -1,4 +1,7 @@
-﻿namespace ProjectMedicalClinic.Models
+﻿//using AspNetCore;
+
+
+namespace ProjectMedicalClinic.Models
 {
     public static class PatientsRepository
     {
@@ -37,6 +40,18 @@
             var maxId = _patients.Max(x => x.PatientId);
             patient.PatientId = maxId + 1;
             _patients.Add(patient);
+            
+            /*if (_patients != null && _patients.Count > 0)
+            {
+                var maxId = _patients.Max(x => x.PatientId);
+                patient.PatientId = maxId + 1;
+            }
+            else
+            {
+                patient.PatientId = 1;
+            }
+            if (_patients == null) _patients = new List<Patient>();
+            _patients.Add(patient);*/
         }
 
         public static List<Patient> GetPatients() => _patients;
@@ -44,7 +59,7 @@
         public static Patient? GetPatientById(int patientId)
         {
             var patient = _patients.FirstOrDefault(x => x.PatientId == patientId);
-            if (patient != null) 
+            if (patient != null)
             {
                 return new Patient
                 {
@@ -68,7 +83,7 @@
             if (patientId != patient.PatientId) return;
 
             var patientToUpdate = _patients.FirstOrDefault(x => x.PatientId == patientId);
-            if (patientToUpdate != null) 
+            if (patientToUpdate != null)
             {
                 patientToUpdate.FirstName = patient.FirstName;
                 patientToUpdate.LastName = patient.LastName;
@@ -79,7 +94,7 @@
                 patientToUpdate.CurrentMedications = patient.CurrentMedications;
             }
         }
-        public static void DeletePatient(int patientId) 
+        public static void DeletePatient(int patientId)
         {
             var patient = _patients.FirstOrDefault(x => x.PatientId == patientId);
             if (patient != null)

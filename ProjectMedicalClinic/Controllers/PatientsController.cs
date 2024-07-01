@@ -28,6 +28,7 @@ namespace ProjectMedicalClinic.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
+            ViewBag.Action = "edit";
             return View(patient);
         }
 
@@ -47,6 +48,7 @@ namespace ProjectMedicalClinic.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
+            ViewBag.Action = "add";
             return View(patient);
         }
 
