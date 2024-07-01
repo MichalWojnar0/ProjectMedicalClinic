@@ -8,20 +8,17 @@ namespace ProjectMedicalClinic.Models
     public class Appointment
     {
 
-        public int Id { get; set; }
+        public int AppId { get; set; }
         [Required]
         [DisplayName("Date of appointment")]
         public DateTime AppointmentDate { get; set; }
-        [Required]
-        [DisplayName("Time of appointment")]
-        public TimeSpan AppointmentTime { get; set; }
         [Required]
         public int PatientId { get; set; }
         //[ForeignKey(PatientId)]
         public Patient? Patient { get; set; }
         [Required]
         public int DoctorId { get; set; }
-        public Doctor Doctor { get; set; }
+        public Doctor? Doctor { get; set; }
         [Required]
         public int RoomId { get; set; }
         public Room? Room { get; set; }
