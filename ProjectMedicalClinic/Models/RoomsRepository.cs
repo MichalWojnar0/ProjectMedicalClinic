@@ -14,11 +14,23 @@
             var maxId = _rooms.Max(x => x.RoomId);
             room.RoomId = maxId + 1;
             _rooms.Add(room);
+            //This how this function should look like, this way we can add new room even if the list is empty, but due to Visual Studio bug it doesn't work.
+            /*if (_rooms != null && _rooms.Count > 0)
+            {
+                var maxId = _rooms.Max(x => x.RoomId);
+                room.RoomId = maxId + 1;
+            }
+            else
+            {
+                room.RoomId = 1;
+            }
+            if (_rooms == null) _rooms = new List<Room>();
+            _rooms.Add(room);*/
         }
 
         public static List<Room> GetRooms(bool loadPatient = false)
         {
-            if (!loadPatient) 
+            if (!loadPatient)
             {
                 return _rooms;
             }
@@ -36,11 +48,10 @@
             return _rooms ?? new List<Room>();
         }
 
-
         public static Room? GetRoomById(int roomId, bool loadPatient = false)
         {
             var room = _rooms.FirstOrDefault(x => x.RoomId == roomId);
-            if (room != null) 
+            if (room != null)
             {
                 var rom = new Room
                 {
@@ -54,16 +65,18 @@
                 {
                     rom.Patient = PatientsRepository.GetPatientById(rom.PatientId.Value);
                 }
+
+                return rom;
             }
             return null;
         }
 
-        public static void UpadteRoom(int  roomId, Room room)
+        public static void UpdateRoom(int roomId, Room room)
         {
             if (roomId != room.RoomId) return;
 
             var roomToUpdate = _rooms.FirstOrDefault(x => x.RoomId == roomId);
-            if(roomToUpdate != null)
+            if (roomToUpdate != null)
             {
                 roomToUpdate.Name = room.Name;
                 roomToUpdate.Floor = room.Floor;
@@ -77,7 +90,7 @@
             if (room != null)
             {
                 _rooms.Remove(room);
-            }   
+            }
         }
     }
 }
