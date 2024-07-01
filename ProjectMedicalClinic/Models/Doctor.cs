@@ -17,9 +17,10 @@ namespace ProjectMedicalClinic.Models
         public string DocLastName { get; set; }
         [Required]
         [DisplayName("Phone Number")]
-        public string PhoneNumber { get; set; }
+        public string DocPhoneNumber { get; set; }
         [Required]
-        public string Address { get; set; }
+        [DisplayName("Address")]
+        public string DocAddress { get; set; }
 
         public string Specialization { get; set; }
         public int YearsOfExperience { get; set; }

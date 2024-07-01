@@ -1,0 +1,69 @@
+﻿@model Doctor
+@{
+    string action = ViewBag.Action ?? string.Empty;
+}
+<form method="post" asp-controller="doctors" asp-action="@action">
+    @if (action?.ToLower() == "edit")
+    {
+        <input type="hidden" asp-for="DoctorId" />
+    }
+
+    <div class="text-danger" asp-validation-summary="All"></div>
+
+    <div class="mb-3 row">
+        <div class="col-2">
+            <label asp-for="DocFirstName" class="col-form-label"></label>
+        </div>
+        <div class="col-6">
+            <input type="text" asp-for="DocFirstName" class="form-control" />
+        </div>
+    </div>
+    <div class="mb-3 row">
+        <div class="col-2">
+            <label asp-for="DocLastName" class="col-form-label"></label>
+        </div>
+        <div class="col-6">
+            <input type="text" asp-for="DocLastName" class="form-control" />
+        </div>
+    </div>
+    <div class="mb-3 row">
+        <div class="col-2">
+            <label asp-for="DocPhoneNumber" class="col-form-label"></label>
+        </div>
+        <div class="col-6">
+            <input type="text" asp-for="DocPhoneNumber" class="form-control" />
+        </div>
+    </div>
+    <div class="mb-3 row">
+        <div class="col-2">
+            <label asp-for="DocAddress" class="col-form-label"></label>
+        </div>
+        <div class="col-6">
+            <input type="text" asp-for="DocAddress" class="form-control" />
+        </div>
+    </div>
+    <div class="mb-3 row">
+        <div class="col-2">
+            <label asp-for="Specialization" class="col-form-label"></label>
+        </div>
+        <div class="col-6">
+            <input type="text" asp-for="Specialization" class="form-control" />
+        </div>
+    </div>
+    <div class="mb-3 row">
+        <div class="col-2">
+            <label asp-for="YearsOfExperience" class="col-form-label"></label>
+        </div>
+        <div class="col-6">
+            <input type="text" asp-for="YearsOfExperience" class="form-control" />
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-2">
+            <input type="submit" class="btn btn-primary" value="Save" />
+        </div>
+        <div class="col-6">
+        </div>
+    </div>
+</form>
