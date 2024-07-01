@@ -1,0 +1,50 @@
+﻿@model List<Doctor>
+
+
+@section title {
+    <h3>Doctors</h3>
+}
+
+@if (Model != null && Model.Count() > 0)
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Doctor's First Name</th>
+                <th>Doctor's Last Name</th>
+                <th>Phone number</th>
+                <th>Address</th>
+                <th>Specialization</th>
+                <th>Years of expirience</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var doctor in Model)
+            {
+                <tr>
+                    <td>@doctor.DocFirstName</td>
+                    <td>@doctor.DocLastName</td>
+                    <td>@doctor.DocPhoneNumber</td>
+                    <td>@doctor.DocAddress</td>
+                    <td>@doctor.Specialization</td>
+                    <td>@doctor.YearsOfExperience</td>
+
+                    <td><a class="btn btn-link" asp-controller="doctors" asp-action="edit" asp-route-id="@doctor.DoctorId">Edit</a></td>
+                    <td><a class="btn btn-link" asp-controller="doctors" asp-action="delete" asp-route-doctorid="@doctor.DoctorId" onclick="return confirmDelete()">Delete</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+}
+<br />
+<a class="btn btn-primary" asp-controller="doctors" asp-action="add">Add</a>
+@section Scripts {
+    <script>
+        function confirmDelete() {
+            return confirm("Are you sure you want to delete choosen doctor?");
+        }
+    </script>
+}
