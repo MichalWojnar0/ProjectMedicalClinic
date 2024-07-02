@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using ProjectMedicalClinic.Models;
 using System.Linq;
 
 namespace ProjectMedicalClinic.Controllers
 {
+    [Authorize]
     public class AppointmentsController : Controller
     {
         public IActionResult Index()
