@@ -12,7 +12,7 @@ using ProjectMedicalClinic.Models;
 namespace ProjectMedicalClinic.Migrations
 {
     [DbContext(typeof(MedicalClinicContext))]
-    [Migration("20240701233335_InitialCreate")]
+    [Migration("20240702123531_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -92,7 +92,7 @@ namespace ProjectMedicalClinic.Migrations
                             AppointmentDate = new DateTime(2024, 7, 6, 0, 0, 0, 0, DateTimeKind.Local),
                             DoctorId = 1,
                             Notes = "Procedure follow-up",
-                            PatientId = 4,
+                            PatientId = 3,
                             RoomId = 2
                         },
                         new
@@ -327,7 +327,8 @@ namespace ProjectMedicalClinic.Migrations
                         {
                             RoomId = 3,
                             Floor = "Third",
-                            Name = "Room C"
+                            Name = "Room C",
+                            PatientId = 3
                         });
                 });
 

@@ -37,7 +37,7 @@ namespace ProjectMedicalClinic.Models
             {
                 AppId = 4,
                 AppointmentDate = DateTime.Today.AddDays(4),
-                PatientId = 4,
+                PatientId = 3,
                 DoctorId = 1,
                 RoomId = 2,
                 Notes = "Procedure follow-up"
