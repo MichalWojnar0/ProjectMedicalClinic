@@ -11,5 +11,6 @@ namespace ProjectMedicalClinic.Models
         public string Floor { get; set; }
 
         public Patient? Patient { get; set; }
+        public ICollection<Appointment>? Appointments { get; set; }
     }
 }

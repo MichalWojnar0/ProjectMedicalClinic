@@ -14,5 +14,6 @@ namespace ProjectMedicalClinic.Models
         public string PhoneNumber { get; set; }
         public string Address { get; set; }
         public string? CurrentMedications { get; set; }
+        public ICollection<Appointment>? Appointments { get; set; }
     }
 }

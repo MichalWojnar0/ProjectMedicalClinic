@@ -14,10 +14,11 @@ namespace ProjectMedicalClinic.Models
         public DateTime AppointmentDate { get; set; }
         [Required]
         public int PatientId { get; set; }
-        //[ForeignKey(PatientId)]
+        [ForeignKey("PatientId")]
         public Patient? Patient { get; set; }
         [Required]
         public int DoctorId { get; set; }
+        [ForeignKey("DoctorId")]
         public Doctor? Doctor { get; set; }
         [Required]
         public int RoomId { get; set; }
