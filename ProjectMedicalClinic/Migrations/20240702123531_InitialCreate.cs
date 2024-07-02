@@ -137,20 +137,11 @@ namespace ProjectMedicalClinic.Migrations
             migrationBuilder.InsertData(
                 table: "Rooms",
                 columns: new[] { "RoomId", "Floor", "Name", "PatientId" },
-                values: new object[] { 3, "Third", "Room C", null });
-
-            migrationBuilder.InsertData(
-                table: "Appointments",
-                columns: new[] { "AppId", "AppointmentDate", "DoctorId", "Notes", "PatientId", "RoomId" },
-                values: new object[] { 3, new DateTime(2024, 7, 5, 0, 0, 0, 0, DateTimeKind.Local), 3, "Check-up appointment", 3, 3 });
-
-            migrationBuilder.InsertData(
-                table: "Rooms",
-                columns: new[] { "RoomId", "Floor", "Name", "PatientId" },
                 values: new object[,]
                 {
                     { 1, "First", "Room A", 1 },
-                    { 2, "Second", "Room B", 2 }
+                    { 2, "Second", "Room B", 2 },
+                    { 3, "Third", "Room C", 3 }
                 });
 
             migrationBuilder.InsertData(
@@ -160,7 +151,8 @@ namespace ProjectMedicalClinic.Migrations
                 {
                     { 1, new DateTime(2024, 7, 3, 0, 0, 0, 0, DateTimeKind.Local), 1, "Follow-up appointment", 1, 1 },
                     { 2, new DateTime(2024, 7, 4, 0, 0, 0, 0, DateTimeKind.Local), 2, "Initial consultation", 2, 2 },
-                    { 4, new DateTime(2024, 7, 6, 0, 0, 0, 0, DateTimeKind.Local), 1, "Procedure follow-up", 4, 2 },
+                    { 3, new DateTime(2024, 7, 5, 0, 0, 0, 0, DateTimeKind.Local), 3, "Check-up appointment", 3, 3 },
+                    { 4, new DateTime(2024, 7, 6, 0, 0, 0, 0, DateTimeKind.Local), 1, "Procedure follow-up", 3, 2 },
                     { 5, new DateTime(2024, 7, 7, 0, 0, 0, 0, DateTimeKind.Local), 3, "Diagnostic discussion", 2, 1 }
                 });
 

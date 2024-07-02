@@ -22,6 +22,7 @@ namespace ProjectMedicalClinic.Models
         public Doctor? Doctor { get; set; }
         [Required]
         public int RoomId { get; set; }
+        [ForeignKey("RoomId")]
         public Room? Room { get; set; }
         public string? Notes { get; set; }
     }

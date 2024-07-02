@@ -27,10 +27,11 @@ namespace ProjectMedicalClinic.Models
                 .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<Appointment>()
-                .HasOne(a => a.Room)
+                .HasOne(a => a.Patient)
                 .WithMany(p => p.Appointments)
                 .HasForeignKey(a => a.PatientId)
                 .OnDelete(DeleteBehavior.Restrict);
+
 
             modelBuilder.Entity<Appointment>()
                 .HasOne(a => a.Room)
@@ -172,15 +173,6 @@ namespace ProjectMedicalClinic.Models
                 DoctorId = 3,
                 RoomId = 3,
                 Notes = "Check-up appointment"
-            },
-            new Appointment
-            {
-                AppId = 4,
-                AppointmentDate = DateTime.Today.AddDays(4),
-                PatientId = 4,
-                DoctorId = 1,
-                RoomId = 2,
-                Notes = "Procedure follow-up"
             },
             new Appointment
             {
