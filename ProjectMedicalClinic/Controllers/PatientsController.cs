@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using ProjectMedicalClinic.Models;
 
@@ -6,6 +7,7 @@ namespace ProjectMedicalClinic.Controllers
 {
     public class PatientsController : Controller
     {
+        [Authorize]
         public IActionResult Index()
         {
             var patients = PatientsRepository.GetPatients();

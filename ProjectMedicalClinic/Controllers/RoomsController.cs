@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using ProjectMedicalClinic.Models;
 using ProjectMedicalClinic.ViewModels;
 
 namespace ProjectMedicalClinic.Controllers
 {
+    [Authorize]
     public class RoomsController : Controller
     {
         public IActionResult Index()
