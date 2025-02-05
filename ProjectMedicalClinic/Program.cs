@@ -1,38 +1,56 @@
 using Microsoft.EntityFrameworkCore;
 using ProjectMedicalClinic.Models;
-using System.Net.Mime;
-using System.Text;
 using Microsoft.AspNetCore.Identity;
 using ProjectMedicalClinic.Data;
+using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
+var services = builder.Services;
 
-builder.Services.AddControllersWithViews();
 
-builder.Services.AddDbContext<MedicalClinicContext>(options =>
+services.AddControllersWithViews();
+services.AddDbContext<MedicalClinicContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("MedicalClinicContext")));
 
-builder.Services.AddDbContext<AccountContext>(options =>
+services.AddDbContext<AccountContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("MedicalClinicContext")));
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<AccountContext>();
+services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+    .AddEntityFrameworkStores<AccountContext>();
 
-builder.Services.AddRazorPages();
+services.AddRazorPages();
+
+services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "Medical Clinic API", Version = "v1" });
+});
+
 
 var app = builder.Build();
 
+
 app.UseStaticFiles();
-
 app.UseRouting();
-
 app.UseAuthentication();
 app.UseAuthorization();
 
+
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "Medical Clinic API V1");
+    });
+}
+
+
 app.MapRazorPages();
+app.MapControllers(); 
+
 
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
-
